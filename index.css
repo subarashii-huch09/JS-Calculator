@@ -29,10 +29,6 @@
   flex-direction: column;
 }
 
-.container li:hover {
-  color: orange;
-}
-
 .display {
   background-color: #041936;
   border-radius: 2.5rem 2.5rem 0 0;
@@ -58,14 +54,22 @@
 
 }
 
+.operation li:hover {
+  color:red;
+  background-color: antiquewhite;
+}
+
+
 .NumButton_group{
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
+  padding-top: 0.5rem;
 }
 
 .NumButton_group li {
   padding: 2.5rem;
+  border-radius: 1rem;
   text-align: center;
 }
 
@@ -89,6 +93,11 @@
 
 .overalButton_group li {
   font-size: 2rem;
+}
+
+.overalButton_group li:hover {
+  color:red;
+  opacity:0.5;
 }
 
 .overalButton_group li:first-child {
