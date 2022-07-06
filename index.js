@@ -1,7 +1,9 @@
 const formulaDisplay = document.querySelector(".formulaDisplay");
 const mainDisplay = document.querySelector(".mainDisplay")
 
-const numberGrp = document.querySelector(".NumButton_group");
+const numbers = Array.from(document.querySelectorAll(".number"));
+
+const operators = document.querySelector('.operators')
 
 const allClear = document.querySelector(".allClear")
 
@@ -9,22 +11,46 @@ const deleteBtn = document.querySelector(".delete")
 
 const equal = document.querySelector(".equal")
 
-// if all clear button is clicked, the main display & forumulaDisplay will both return to 0
-allClear.addEventListener('click',function(){
-  mainDisplay.textContent= 0
-  formulaDisplay.textContent = 0;
-})
-
-numberGrp.addEventListener('click', function(e){
-   if(e.target.nodeName ==="LI"){
-    console.log(e.target)
-    let key = e.target.textContent;
-    console.log(key)
-    mainDisplay.textContent = key;
-  }
-})
 
 
 
 
+numbers.map((num)=>{
+  num.addEventListener("click",function(e){
+    
+    switch (e.target.innerText) {
+      // if AC button is clicked, the main display & forumulaDisplay will both return to ""
+      case "AC":
+        mainDisplay.textContent = "";
+        formulaDisplay.textContent = "";
+        break;
+      case "=":
+        // when equal button is clicekd, mainDisplay will display the result of calculation
+        try {
+          let result = eval(mainDisplay.textContent);
+          mainDisplay.textContent = result;
+        } catch {
+          mainDisplay.innerText = "Error";
+        }
+        break;
+      case "⌫":
+        if (mainDisplay.innerText) {
+          mainDisplay.innerText = mainDisplay.innerText.slice(0, -1);
+        }
+        break;
+      default:
+        mainDisplay.textContent += e.target.innerText;
+      // display operators when them are clicked
+      // display numbers when numbers are clicked
+    }
+  })
+  })
 
+
+// issues:
+// - display top formula
+// - limit numbers on display
+// - only numbers can be firstly entered
+// - 00 
+// - dot
+// - after previous calculation, when press number buttons again, should display new calcutation process

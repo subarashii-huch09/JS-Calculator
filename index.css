@@ -83,6 +83,7 @@ table {
   background-color: #041936;
   border-radius: 2.5rem 2.5rem 0 0;
   padding: 1rem 2rem;
+  height: 8rem;
 }
 
 .display p:last-child {
@@ -109,14 +110,14 @@ table {
 }
 
 
-.NumButton_group{
+.number_group{
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
   padding-top: 0.5rem;
 }
 
-.NumButton_group li {
+.number_group li {
   padding: 2.5rem;
   border-radius: 1rem;
   text-align: center;
